@@ -1,12 +1,7 @@
-FROM docker.io/python:3.11 as build
-WORKDIR /build
+FROM docker.io/python:3.11
+WORKDIR /app
 ADD . .
 RUN pip install poetry
-RUN poetry build
-
-FROM docker.io/python:3.11-slim
-WORKDIR /app
-COPY --from=build /build/dist/*.whl .
-RUN pip install *.whl && rm *.whl
+RUN poetry install --without=dev --no-root
 
 CMD ["invoices"]
