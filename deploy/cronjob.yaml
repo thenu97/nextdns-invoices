@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nextdns-invoices
+  namespace: invoices
+spec:
+  schedule: "0 0 10 * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          annotations:
+            kubectl.kubernetes.io/default-container: app
+          labels:
+            azure.workload.identity/use: "true"
+        spec:
+          containers:
+            - name: app
+              image: ghcr.io/thenu97/nextdns-invoices:latest
+              imagePullPolicy: Always
+          restartPolicy: Never
+          serviceAccountName: nextdns-invoices
