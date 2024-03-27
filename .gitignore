@@ -1,7 +1,5 @@
 # Custom Ignores
 
-*.yaml
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -35,3 +33,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Linting
+.ruff*
