@@ -7,19 +7,13 @@ from pathlib import Path
 import pendulum
 import pyotp
 import requests
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
 from box import Box
 from jinja2 import Template
 from loguru import logger
 from requests.auth import HTTPBasicAuth
 
+from invoices.azure import keyvault_client
 from invoices.settings import settings
-
-identity = DefaultAzureCredential()
-keyvault_client = SecretClient(
-    vault_url=str(settings.keyvault_url), credential=identity
-)
 
 
 class NextDNS:
