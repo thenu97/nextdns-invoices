@@ -12,7 +12,7 @@ invoices = "invoices:app"
 python = "^3.11"
 pendulum = "^3.0.0"
 pyotp = "^2.9.0"
-requests = "^2.31.0"
+requests = "^2.32.2"
 Jinja2 = "^3.1.4"
 pydantic = {extras = ["email"], version = "^2.6.4"}
 pydantic-settings = "^2.2.1"
